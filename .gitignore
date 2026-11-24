@@ -1,0 +1,8 @@
+# build.mjs が書きます。公開するのは ! のついた物だけです
+/*
+!/.gitignore
+!/build.mjs
+!/index.html
+!/.nojekyll
+!/p/
+.DS_Store
