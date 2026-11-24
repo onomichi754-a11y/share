@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="color-scheme" content="light">
+<title>ためしのページ</title>
+<meta property="og:title" content="ためしのページ">
+<meta property="og:description" content="タップすると開きます">
+<meta property="og:url" content="https://onomichi754-a11y.github.io/share/p/5kpjkr4eyh/">
+<meta property="og:type" content="website">
+<style>
+body{margin:0}
+#gate{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 16px;box-sizing:border-box;background:#F4FAF8;font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif}
+#gate .in{max-width:420px;width:100%;background:#fff;border:2px solid #C9E2DB;border-top:6px solid #0E7C86;border-radius:20px;padding:28px 22px;text-align:center}
+#gate h1{font-size:22px;font-weight:800;color:#17332D;margin:0 0 10px}
+#gate p{margin:0;font-size:17px;color:#44605A;line-height:1.8;font-weight:500}
+</style>
+</head>
+<body>
+<div id="gate"><div class="in"><h1>ためしのページ</h1><p id="msg">開いています…</p></div></div>
+<script>
+(async function(){
+  var m=(location.hash+'&'+location.search).match(/[#?&]k=([A-Za-z0-9]+)/);
+  var msg=document.getElementById('msg');
+  if(!m||!window.crypto||!crypto.subtle){msg.textContent='お送りしたリンクから、もう一度開いてください。';return}
+  try{
+    var d=Uint8Array.from(atob("L6/BuwgEV+pSLj9GtjxFQ3yig+hH59vV/8OMocGPI1orKwzqQ3dUZ2IZbvxfy/oJXfzi6nAF3uDP2fjw53H63YeuAdPqzxJymJyOy6jyb7EPKWHCcAe7nxD9UOlUeb9MwmnJS5aHrLSjHZb4ld2zoRpPuFAX89/iJA7QN4uREHxlWrIjYyntP7O52yNyL3pzAQoqffSto/Wav9zPTwhCK+0Q/3WBp0ixjuV0LJEe18PhNM5OXIGvlUdLLyLvfbXSg2bbrgUA/91M2jOSRWHIDh51SFjN1ZhQ32sQttr/G832feX8q2To9tRZ7ibaMt+HsBbMQ77fogOEsDloZYqWiPbgQ83lZH0ny9FDc4T9GfxNvaXHquJdZ9OUUwG16d8lI8WbwMIrr4eWrRXxEpT0fznm0Ve4PhqtEgWmXDCgxvE56lxQ1IkR9gsrqIZRR68M85wkx3sjMVJHJT5mG/iA6eyiVl5NM59SNg/ExIZZ33IQ+Db1vAVeF+SScGrKSOGqkQ/edDwUjDbvKPqB4LvaiUKgmqBKSyPgIzAXueVIEvdHIFcT6lvABoPveRCLHtX8V7iOKJtTmp+qLNmlYmZUWvllYe6brInTZhCWYasgzoju3ZolxvSp5hJnEQlmLssaaXEAuCAdrsY9Yt6WYBAMGx8iq4kYWeSjz8JD38wQMRLJj4recea2eVs667u6uiyauB1qxrkP8pfXvr3DwGAZ0h3KH0NQtdkOUxoc3z52YkKHJCcSwgQQhuSaXJAUTKDhtmnbl7q7q4P94NuxRzm4CHPLiVt7gLlG95wUixoYG2EZcBLmy9BV9gesOvxn5A9gO9SEcpxICA73maRRJupN2SJyp9p1kmkk6TCI9tcoV2vfTj21Pg=="),function(c){return c.charCodeAt(0)});
+    var salt=Uint8Array.from(atob("/IonNOAQ3MTa9jNBlaaVRg=="),function(c){return c.charCodeAt(0)});
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(m[1]),'PBKDF2',false,['deriveKey']);
+    var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:250000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    var html=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:d.slice(0,12)},key,d.slice(12)));
+    document.open();document.write(html);document.close();
+  }catch(e){msg.textContent='お送りしたリンクから、もう一度開いてください。'}
+})();
+</script>
+</body></html>
